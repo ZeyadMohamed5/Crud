@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrudSystem</title>
+    <link rel="stylesheet" href="styling/bootstrap.min.css" />
+    <link rel="stylesheet" href="styling/style.css" />
+  </head>
+  <body>
+    <div class="bg-dark">
+      <div class="container py-3">
+        <h1 class="text-light text-center">Crud Project</h1>
+        <div>
+          <div class="mb-3">
+            <label class="form-label text-light">Enter Prodcut Name</label>
+            <input
+              type="text"
+              class="form-control mb-1 p-3"
+              id="productName"
+              placeholder="Enter Product Name"
+              oninput="validation()"
+            />
+            <div class="alert alert-danger d-none" id="error">
+              Name must be between 3,9 and first letter must be capital !
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label text-light">Enter Prodcut Price</label>
+            <input
+              type="text"
+              class="form-control mb-1 p-3"
+              id="productPrice"
+              placeholder="Enter Product Price"
+              oninput="pricevalidation()"
+            />
+            <div class="alert alert-danger d-none" id="priceError">
+              Price must be between 2000 to 20000!
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label text-light">Enter Prodcut Type</label>
+            <input
+              type="text"
+              class="form-control mb-1 p-3"
+              id="productType"
+              placeholder="Enter Product Type"
+              oninput="typevalidation()"
+            />
+            <div class="alert alert-danger d-none" id="typeError">
+              Type must be Laptop,Watch or Mobile
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label text-light"
+              >Enter Product Description</label
+            >
+            <textarea
+              class="form-control"
+              placeholder="Enter Prodcut Description"
+              id="productDesc"
+              cols="3"
+              rows="3"
+              oninput="descvalidation()"
+            ></textarea>
+          </div>
+          <div class="text-center">
+            <button
+              id="addButton"
+              onclick="addProduct()"
+              type="button"
+              class="btn btn-success w-75 mb-3"
+            >
+              ADD PRODUCT
+            </button>
+            <button
+              id="saveButton"
+              class="btn btn-success w-75 mb-3"
+              onclick="saveProduct()"
+              style="display: none"
+            >
+              SAVE CHANGES
+            </button>
+          </div>
+
+          <div class="mb-3 w-50 mx-auto">
+            <input
+              oninput="search()"
+              type="text"
+              class="form-control p-3"
+              id="productSearch"
+              placeholder="Enter Product Name"
+            />
+          </div>
+        </div>
+        <table class="table table-light">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Type</th>
+              <th scope="col">Description</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="styling/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
